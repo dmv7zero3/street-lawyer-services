@@ -1,7 +1,8 @@
 import React from "react";
+import HeroSection from "./HeroSection";
 
 const HomePage: React.FC = () => {
-  return <div>Hello World</div>;
+  return <HeroSection />;
 };
 
 export default HomePage;

@@ -1,0 +1,59 @@
+/* src/styles/fonts.css */
+
+/* ==============================================
+	 OSWALD - Headings & Display Text
+	 ============================================== */
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("../fonts/Oswald/Oswald-Regular.woff2") format("woff2"),
+    url("../fonts/Oswald/Oswald-Regular.woff") format("woff"),
+    url("../fonts/Oswald/Oswald-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url("../fonts/Oswald/Oswald-Bold.woff2") format("woff2"),
+    url("../fonts/Oswald/Oswald-Bold.woff") format("woff"),
+    url("../fonts/Oswald/Oswald-Bold.ttf") format("truetype");
+}
+
+/* ==============================================
+	 OPEN SANS - Body Text & UI Elements
+	 ============================================== */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("../fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"),
+    url("../fonts/OpenSans/OpenSans-Regular.woff") format("woff"),
+    url("../fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url("../fonts/OpenSans/OpenSans-Bold.woff2") format("woff2"),
+    url("../fonts/OpenSans/OpenSans-Bold.woff") format("woff"),
+    url("../fonts/OpenSans/OpenSans-Bold.ttf") format("truetype");
+}
+
+/* ==============================================
+	 FONT UTILITY CLASSES
+	 ============================================== */
+.font-oswald {
+  font-family: "Oswald", ui-sans-serif, system-ui, sans-serif;
+}
+.font-open-sans {
+  font-family: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+}
