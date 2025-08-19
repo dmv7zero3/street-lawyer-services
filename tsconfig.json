@@ -4,6 +4,7 @@
     "target": "ES2015",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
+    "checkJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -24,15 +25,20 @@
       "@videos/*": ["assets/videos/*"],
       "@ui/*": ["components/ui/*"]
     },
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "incremental": true,
+    "tsBuildInfoFile": "./node_modules/.cache/typescript/tsbuildinfo"
   },
   "include": ["src/**/*"],
   "exclude": [
     "node_modules",
+    "dist",
     "_notes",
     "webpack",
     "webpack_copy",
     "copywebpack",
-    "python"
+    "python",
+    "**/*.test.ts",
+    "**/*.test.tsx"
   ]
 }
