@@ -218,7 +218,7 @@ export default {
         "slide-up": "slideUp 0.4s ease-out",
         "slide-down": "slideDown 0.4s ease-out",
         "scale-in": "scaleIn 0.3s ease-out",
-        "glow-pulse": "glowPulse 2s ease-in-out infinite",
+        "glow-pulse": "glowPulse 4s ease-in-out infinite",
       },
 
       keyframes: {
