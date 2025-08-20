@@ -1,0 +1,228 @@
+/* src/components/Galleries/FlipGallery/FlipGallery.css */
+
+.flip-gallery-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Responsive grid columns */
+.gallery-grid.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+.gallery-grid.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.gallery-grid.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.gallery-grid.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (min-width: 768px) {
+  .gallery-grid.md\:grid-cols-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .gallery-grid.md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-grid.md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gallery-grid.md\:grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid.lg\:grid-cols-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .gallery-grid.lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-grid.lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .gallery-grid.lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Flip Card Styles */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  aspect-ratio: 1; /* Square cards */
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* Card heights for different breakpoints */
+
+/* Smaller card height for mobile */
+.flip-card {
+  height: 140px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .flip-card {
+    height: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .flip-card {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .flip-card {
+    height: 300px;
+  }
+}
+
+/* Inner container for the flip animation */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Flip the card when clicked */
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the front side */
+.flip-card-front {
+  background-color: #f0f0f0;
+}
+
+/* Style the back side and rotate it */
+.flip-card-back {
+  background-color: #f0f0f0;
+  transform: rotateY(180deg);
+}
+
+/* Hover effect */
+.flip-card:hover .flip-card-inner {
+  transform: translateZ(10px);
+}
+
+.flip-card.flipped:hover .flip-card-inner {
+  transform: rotateY(180deg) translateZ(10px);
+}
+
+/* Focus styles for accessibility */
+.flip-card:focus {
+  outline: 3px solid #4f46e5;
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.flip-card:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Loading state */
+.flip-card-front::before,
+.flip-card-back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 12px;
+  opacity: 0;
+  animation: shimmer 1.5s infinite;
+}
+
+.flip-card-front[style*="url"]::before,
+.flip-card-back[style*="url"]::before {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Smooth animations on mobile */
+@media (max-width: 768px) {
+  .flip-card-inner {
+    transition: transform 0.6s;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner {
+    transition: none;
+  }
+
+  .flip-card.flipped .flip-card-front {
+    opacity: 0;
+  }
+
+  .flip-card.flipped .flip-card-back {
+    opacity: 1;
+    transform: none;
+  }
+}

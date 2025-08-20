@@ -124,7 +124,7 @@ const LonnySection: React.FC = () => {
       {/* Background Elements */}
       <Background />
 
-      <div className="relative z-10 px-8 mx-auto max-w-7xl">
+      <div className="relative z-10 px-8 mx-auto mt-0 max-w-7xl">
         <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
           {/* Content Side */}
           <div className="lg:order-1">

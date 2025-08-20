@@ -69,7 +69,7 @@ const MapsSection: React.FC = () => {
         <div className="grid items-start gap-8 lg:grid-cols-3 lg:gap-12">
           {/* Google Map */}
           <div className="lg:col-span-2" ref={mapRef}>
-            <div style={{ width: "100%", height: "400px" }}>
+            <div style={{ width: "100%", height: "100%" }}>
               <GoogleMapComponent />
             </div>{" "}
           </div>
