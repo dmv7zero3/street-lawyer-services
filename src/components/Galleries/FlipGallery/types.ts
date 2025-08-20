@@ -33,6 +33,7 @@ export interface FlipCardProps {
   backImage: string;
   altText?: string;
   cardHeight: CardHeight;
+  cardRef?: (el: HTMLDivElement | null) => void;
 }
 
 export interface FlipAnimationOptions {

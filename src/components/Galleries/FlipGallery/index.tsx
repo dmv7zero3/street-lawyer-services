@@ -59,7 +59,7 @@ const FlipGallery: React.FC<FlipGalleryProps> = ({
           {cards.map((card, index) => (
             <FlipCard
               key={card.id || generateCardId(index)}
-              ref={setCardRef(index)}
+              cardRef={setCardRef(index)}
               frontImage={validateImageUrl(card.frontImage)}
               backImage={validateImageUrl(card.backImage)}
               altText={card.altText || `Gallery image ${index + 1}`}

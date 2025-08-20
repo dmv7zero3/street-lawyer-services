@@ -56,7 +56,7 @@ const LocationInfo = forwardRef<HTMLDivElement, LocationInfoProps>(
         </div>
 
         {/* Contact */}
-        <div>
+        {/* <div>
           <h3
             className="text-2xl font-bold font-heading text-sls-gold mb-3 tracking-[0.05em]"
             style={{
@@ -66,15 +66,15 @@ const LocationInfo = forwardRef<HTMLDivElement, LocationInfoProps>(
             Contact
           </h3>
           <div className="space-y-2">
-            {/* <p className="text-lg text-sls-marble-300">
+            <p className="text-lg text-sls-marble-300">
               <span className="text-sls-gold">Phone:</span> (202) 555-HERB
-            </p> */}
+            </p>
             <p className="text-lg text-sls-marble-300">
               <span className="text-sls-gold">Email:</span>{" "}
               info@streetlawyerservices.com
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* Directions Button */}
         <div className="mt-8">

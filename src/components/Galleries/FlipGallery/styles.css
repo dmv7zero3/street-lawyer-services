@@ -12,11 +12,9 @@
   aspect-ratio: 1 / 1;
 
   /* Hardware acceleration for smooth animations */
-  /* transform: translateZ(0);  Removed to allow GSAP flip animation */
-  backface-visibility: hidden;
   will-change: transform;
 
-  /* 3D perspective container */
+  /* 3D perspective container - GSAP will override these as needed */
   perspective: 1000px;
   transform-style: preserve-3d;
 
@@ -49,15 +47,15 @@
   background-size: cover;
   border-radius: 0.75rem;
 
-  /* 3D transform properties */
+  /* 3D transform properties - CRITICAL: No initial transforms! */
   transform-origin: center;
   backface-visibility: hidden;
-  transform: translateZ(0);
 
-  /* Smooth transitions for any additional effects */
-  transition:
-    filter 0.3s ease,
-    transform 0.3s ease;
+  /* REMOVED: transform: translateZ(0) - this conflicts with GSAP */
+  /* REMOVED: transition: transform 0.3s ease - this conflicts with GSAP */
+
+  /* Only filter transitions, not transform */
+  transition: filter 0.3s ease;
 }
 
 /* Optimizations for square images */
@@ -89,10 +87,9 @@
 }
 
 /* WebKit specific optimizations for iOS Safari */
+/* CRITICAL: Removed transform overrides that conflict with GSAP */
 @media (max-width: 1024px) {
   .flipImgCard {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-perspective: 1000px;
@@ -102,12 +99,11 @@
   }
 
   .flipImg {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-transform-origin: center;
     transform-origin: center;
+    /* REMOVED: All transform properties to avoid GSAP conflicts */
   }
 }
 
