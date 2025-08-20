@@ -138,8 +138,10 @@ const LonnySection: React.FC = () => {
               </TextBlock>
 
               <TextBlock ref={line2Ref}>
-                Named "D.C.'s King of Cannabis" by District Fray Magazine. Super
-                Lawyers recognition four consecutive years. Host of DC101's
+                Named "D.C.'s King of Cannabis" by District Fray Magazine. Year
+                after year, Lonny has been handpicked by his peers as a Super
+                Lawyer — a formidable accolade granted only to the top
+                attorneys, fueling his legacy of excellence. Host of DC101's
                 "Lonny the Street Lawyer" radio show reaching thousands across
                 the DMV.
               </TextBlock>

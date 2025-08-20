@@ -13,11 +13,15 @@ const HeroBackground: React.FC = () => {
       />
 
       {/* Smoke GIF background layer */}
-      <img
-        src="/images/gif/smoke.gif"
-        alt="smoke background"
-        className="absolute inset-0 object-cover w-[100%] h-[100%] pointer-events-none select-none opacity-40"
-        style={{ zIndex: 1 }}
+      <div
+        className="absolute inset-0 pointer-events-none select-none opacity-40"
+        style={{
+          zIndex: 1,
+          backgroundImage: "url(/images/gif/smoke.gif)",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+        }}
       />
 
       {/* Base gradient background */}

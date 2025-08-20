@@ -1,6 +1,10 @@
+import "../../components/Galleries/FlipGallery/styles.css";
 // src/pages/Homepage/index.tsx
+
 import React, { Suspense } from "react";
 import HeroSection from "./HeroSection";
+import FlipGallery from "../../components/Galleries/FlipGallery";
+import { lonnyGalleryData } from "../../components/Galleries/FlipGallery/data/lonnyGalleryData";
 
 // Lazy load the other sections
 const LonnySection = React.lazy(() => import("./LonnySection"));
@@ -21,6 +25,10 @@ const HomePage: React.FC = () => {
         <LonnySection />
       </Suspense>
 
+      {/* Flip Gallery Section */}
+      <section className="my-8">
+        <FlipGallery cards={lonnyGalleryData.slice(0, 6)} />
+      </section>
       <Suspense
         fallback={
           <div className="flex items-center justify-center h-32">

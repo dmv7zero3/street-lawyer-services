@@ -1,0 +1,48 @@
+{
+  "Version": "2012-10-17",
+  "Id": "PolicyForCloudFrontPrivateContent",
+  "Statement": [
+    {
+      "Sid": "AllowCloudFrontServicePrincipalE34BHBYCWQMYEU",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::street-lawyer-services/*",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceArn": "arn:aws:cloudfront::752567131183:distribution/E34BHBYCWQMYEU"
+        }
+      }
+    },
+    {
+      "Sid": "AllowCloudFrontServicePrincipalE17AMT08F85Y5T",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cloudfront.amazonaws.com"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::street-lawyer-services/*",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceArn": "arn:aws:cloudfront::752567131183:distribution/E17AMT08F85Y5T"
+        }
+      }
+    },
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::street-lawyer-services/local-seo-photos/*"
+    },
+    {
+      "Sid": "PublicReadOGImages",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::street-lawyer-services/images/og-image/*"
+    }
+  ]
+}

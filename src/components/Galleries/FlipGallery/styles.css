@@ -1,0 +1,228 @@
+/* src/components/Galleries/FlipGallery/styles.css */
+
+/* Flip Gallery Styles - Optimized for 1:1 Square Images */
+.flipImgCard {
+  /* Use CSS custom properties for responsive heights */
+  height: var(--mobile-height, 165px);
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+
+  /* Ensure square aspect ratio for 1:1 images */
+  aspect-ratio: 1 / 1;
+
+  /* Hardware acceleration for smooth animations */
+  /* transform: translateZ(0);  Removed to allow GSAP flip animation */
+  backface-visibility: hidden;
+  will-change: transform;
+
+  /* 3D perspective container */
+  perspective: 1000px;
+  transform-style: preserve-3d;
+
+  /* Smooth border radius transitions */
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* Responsive height adjustments - maintaining square ratio */
+@media (min-width: 768px) {
+  .flipImgCard {
+    height: var(--tablet-height, 195px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .flipImgCard {
+    height: var(--desktop-height, 245px);
+  }
+}
+
+.flipImg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.75rem;
+
+  /* 3D transform properties */
+  transform-origin: center;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+
+  /* Smooth transitions for any additional effects */
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Optimizations for square images */
+.flipImg {
+  /* Ensure proper aspect ratio is maintained */
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Enhanced hover effects for square cards */
+.flipImgCard:hover .flipImg {
+  filter: brightness(1.05) contrast(1.02);
+}
+
+/* Active state for touch devices */
+.flipImgCard:active .flipImg {
+  filter: brightness(0.95);
+}
+
+/* Focus states for accessibility */
+.flipImgCard:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.flipImgCard:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* WebKit specific optimizations for iOS Safari */
+@media (max-width: 1024px) {
+  .flipImgCard {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  .flipImg {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+  }
+}
+
+/* Accessibility - Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .flipImgCard {
+    transform: none;
+    perspective: none;
+  }
+
+  .flipImg {
+    transform: none !important;
+    backface-visibility: visible;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Show both images with opacity transition when motion is reduced */
+  .flipImgCard .back-image {
+    opacity: 0;
+  }
+
+  .flipImgCard:hover .back-image,
+  .flipImgCard:focus .back-image {
+    opacity: 1;
+  }
+
+  .flipImgCard:hover .front-image,
+  .flipImgCard:focus .front-image {
+    opacity: 0;
+  }
+}
+
+/* Loading state with shimmer effect */
+.flipImg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0;
+  border-radius: 0.75rem;
+  pointer-events: none;
+  transform: translateX(-100%);
+}
+
+/* Show loading shimmer while images load */
+.flipImg[style*="background-image"]::before {
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* High DPI display optimizations */
+@media (min-resolution: 2dppx) {
+  .flipImg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Custom gallery variations */
+.extended-gallery .flipImgCard {
+  border-radius: 1rem;
+}
+
+.extended-gallery .flipImg {
+  border-radius: 1rem;
+}
+
+.compact-gallery .flipImgCard {
+  border-radius: 0.5rem;
+}
+
+.compact-gallery .flipImg {
+  border-radius: 0.5rem;
+}
+
+/* Animation states */
+.flipImgCard.is-animating {
+  pointer-events: none;
+}
+
+.flipImgCard.is-flipped {
+  transform: rotateY(180deg);
+}
+
+/* Error state styling */
+.flipImg[style*="placeholder"] {
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flipImg[style*="placeholder"]::after {
+  content: "📷";
+  font-size: 2rem;
+  opacity: 0.5;
+}

@@ -186,7 +186,9 @@ async function convertToAvif(imagePath) {
     // Clean up failed conversion
     try {
       await fs.promises.unlink(outputPath);
-    } catch {}
+    } catch {
+      // intentionally empty: ignore errors during cleanup
+    }
 
     return { error: error.message, format: "AVIF" };
   }
@@ -233,7 +235,9 @@ async function convertToWebp(imagePath) {
     // Clean up failed conversion
     try {
       await fs.promises.unlink(outputPath);
-    } catch {}
+    } catch {
+      // intentionally empty: ignore errors during cleanup
+    }
 
     return { error: error.message, format: "WebP" };
   }
@@ -292,7 +296,9 @@ async function optimizeOriginal(imagePath) {
     // Clean up failed conversion
     try {
       await fs.promises.unlink(outputPath);
-    } catch {}
+    } catch {
+      // intentionally empty: ignore errors during cleanup
+    }
 
     return { error: error.message, format: "Original" };
   }
