@@ -5,22 +5,13 @@ const MAX_RETRIES = 1;
 
 // API Gateway base URL
 const API_BASE_URL =
-  "https://drtj5ewvdc.execute-api.us-east-1.amazonaws.com/PROD";
+  "https://v1hwdsab2e.execute-api.us-east-1.amazonaws.com/PROD";
 
 // Define all available endpoints
 export const ENDPOINTS = {
   // Form endpoints
   FORMS: {
-    SUBSCRIBER: "/forms/subscriber",
     CONTACT: "/forms/contact",
-    CAREER: "/forms/career",
-  },
-  // Dashboard endpoints
-  DASHBOARD: {
-    ROOT: "/dashboard",
-    LOGIN: "/dashboard/login",
-    FORGOT_PASSWORD: "/dashboard/forgot-password",
-    SET_PASSWORD: "/dashboard/set-password",
   },
 } as const;
 

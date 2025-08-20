@@ -1,3 +1,4 @@
+import ContactFormSection from "./ContactForm/ContactFormSection";
 // src/pages/Homepage/index.tsx
 import "../../components/Galleries/FlipGallery/FlipGallery.css";
 
@@ -7,7 +8,6 @@ const FlipGallery = React.lazy(
   () => import("../../components/Galleries/FlipGallery/FlipGallery")
 );
 import { galleryData } from "../../components/Galleries/FlipGallery/galleryData";
-import BricksBackground from "../../components/BricksBackground";
 
 // Lazy load the other sections
 const LonnySection = React.lazy(() => import("./LonnySection"));
@@ -63,7 +63,8 @@ const HomePage: React.FC = () => {
       >
         <MapsSection />
       </Suspense>
-      {/* Future sections will go here */}
+
+      <ContactFormSection />
     </div>
   );
 };

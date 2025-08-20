@@ -51,7 +51,6 @@ tmp/
 temp/
 
 # Project-specific folders (as specified)
-AWS_Lambda_Functions/
 notes/
 public/
 scripts/
