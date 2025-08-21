@@ -13,8 +13,7 @@ class S3UploadPlugin {
     this.options = {
       bucket: process.env.S3_BUCKET_NAME || "street-lawyer-services",
       region: process.env.AWS_REGION || "us-east-1",
-      distributionId:
-        process.env.CLOUDFRONT_DISTRIBUTION_ID || "E34BHBYCWQMYEU",
+      distributionId: process.env.CLOUDFRONT_DISTRIBUTION_ID,
       deleteRemoved: true,
       ...options,
     };

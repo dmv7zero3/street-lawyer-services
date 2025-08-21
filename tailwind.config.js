@@ -3,84 +3,89 @@ import tailwindcssAnimate from "tailwindcss-animate";
 import tailwindcssForms from "@tailwindcss/forms";
 import tailwindcssTypography from "@tailwindcss/typography";
 
-// Design tokens - can be externalized to JSON/Figma in the future
+// Cafe Opera Heritage Opera Design Tokens
 const designTokens = {
   colors: {
-    "sls-forest": {
-      50: "#f4f7f1",
-      100: "#e6ede0",
-      200: "#cfdcc3",
-      300: "#adc19c",
-      400: "#84a16f",
-      500: "#648150",
-      600: "#4e663e",
-      700: "#3e5132",
-      800: "#2d5016", // Primary
-      900: "#253f15",
-      950: "#13220b",
-      DEFAULT: "#2d5016",
+    // Heritage Opera Primary - Deep Opera Blue
+    "opera-blue": {
+      50: "#f0f4f8",
+      100: "#d9e2ec",
+      200: "#bcccdc",
+      300: "#9fb3c8",
+      400: "#829ab1",
+      500: "#627d98",
+      600: "#486581",
+      700: "#334e68",
+      800: "#243b53",
+      900: "#1B365D", // Primary Heritage Opera Blue
+      950: "#102a4c",
+      DEFAULT: "#1B365D",
     },
-    "sls-purple": {
-      50: "#faf7fc",
-      100: "#f3ecf8",
-      200: "#e8ddf2",
-      300: "#d6c3e8",
-      400: "#bc9bd9",
-      500: "#a172c8",
-      600: "#8754b4",
-      700: "#6b2c91", // Primary
-      800: "#5d2d7e",
-      900: "#4e2866",
-      950: "#321443",
-      DEFAULT: "#6b2c91",
+    // Heritage Accent - Champagne Gold
+    "champagne-gold": {
+      50: "#fefdf8",
+      100: "#fdf9e7",
+      200: "#fbf1c7",
+      300: "#f9e79f",
+      400: "#F7E7B4", // Primary Champagne Gold
+      500: "#f4dc7a",
+      600: "#f0ce4e",
+      700: "#e8b923",
+      800: "#d4a017",
+      900: "#b8860b",
+      950: "#8b6914",
+      DEFAULT: "#F7E7B4",
     },
-    "sls-marble": {
+    // Heritage Background - Warm Ivory
+    "warm-ivory": {
       50: "#fdfdfc",
       100: "#fcfbf9",
-      200: "#f8f6f3", // Primary
-      300: "#f3f0eb",
-      400: "#ebe5dd",
-      500: "#ddd4c8",
-      600: "#cbbfad",
-      700: "#b5a68f",
-      800: "#948677",
-      900: "#7a6f62",
-      950: "#403932",
-      DEFAULT: "#f8f6f3",
+      200: "#FAF7F0", // Primary Warm Ivory
+      300: "#f6f2e8",
+      400: "#f0ead8",
+      500: "#e8dfc4",
+      600: "#ddd1aa",
+      700: "#cebf8a",
+      800: "#b8a474",
+      900: "#9d8a5f",
+      950: "#52452f",
+      DEFAULT: "#FAF7F0",
     },
-    "sls-charcoal": {
-      50: "#f6f6f6",
-      100: "#e7e7e7",
-      200: "#d1d1d1",
-      300: "#b0b0b0",
-      400: "#888888",
-      500: "#6d6d6d",
-      600: "#5d5d5d",
-      700: "#4f4f4f",
-      800: "#454545",
-      900: "#3d3d3d",
-      950: "#1a1a1a", // Primary
-      DEFAULT: "#1a1a1a",
+    // Heritage Text - Rich Mahogany
+    "rich-mahogany": {
+      50: "#faf7f5",
+      100: "#f3ede8",
+      200: "#e5d7ce",
+      300: "#d3bcab",
+      400: "#bc9780",
+      500: "#a97a5e",
+      600: "#956650",
+      700: "#7d5544",
+      800: "#67473b",
+      900: "#5D2E1F", // Primary Rich Mahogany
+      950: "#2f1611",
+      DEFAULT: "#5D2E1F",
     },
-    "sls-gold": {
-      50: "#fefce8",
-      100: "#fef9c3",
-      200: "#fef08a",
-      300: "#fde047",
-      400: "#facc15",
-      500: "#eab308",
-      600: "#ca8a04",
-      700: "#a16207",
-      800: "#854d0e",
-      900: "#713f12",
-      950: "#d4af37", // Primary
-      DEFAULT: "#d4af37",
+    // Heritage Accent 2 - Jade Green
+    "jade-green": {
+      50: "#f4f8f5",
+      100: "#e6f0e8",
+      200: "#cfe1d3",
+      300: "#adc9b4",
+      400: "#84a890",
+      500: "#628a70",
+      600: "#4A7C59", // Primary Jade Green
+      700: "#3e6147",
+      800: "#344f3a",
+      900: "#2c4130",
+      950: "#172319",
+      DEFAULT: "#4A7C59",
     },
   },
   typography: {
     fontFamily: {
-      heading: ["Oswald", "ui-sans-serif", "system-ui", "sans-serif"],
-      body: ["Open Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+      heading: ["Playfair Display", "ui-serif", "Georgia", "Cambria", "serif"],
+      body: ["Lato", "ui-sans-serif", "system-ui", "sans-serif"],
     },
     fontSize: {
       hero: [
@@ -125,45 +130,54 @@ export default {
 
   theme: {
     extend: {
-      // Centralized design tokens
+      // Centralized Heritage Opera design tokens
       colors: {
         ...designTokens.colors,
 
         // Semantic aliases for consistent usage
         primary: {
-          ...designTokens.colors["sls-gold"],
-          foreground: designTokens.colors["sls-charcoal"][950],
+          ...designTokens.colors["opera-blue"],
+          foreground: designTokens.colors["warm-ivory"][200],
         },
         secondary: {
-          ...designTokens.colors["sls-forest"],
-          foreground: designTokens.colors["sls-marble"][200],
+          ...designTokens.colors["champagne-gold"],
+          foreground: designTokens.colors["opera-blue"][900],
         },
         accent: {
-          ...designTokens.colors["sls-purple"],
-          foreground: designTokens.colors["sls-marble"][200],
+          ...designTokens.colors["jade-green"],
+          foreground: designTokens.colors["warm-ivory"][200],
         },
 
-        // Background system
+        // Background system - Heritage Opera
         background: {
-          DEFAULT: designTokens.colors["sls-marble"][200],
-          dark: designTokens.colors["sls-charcoal"][950],
-          light: designTokens.colors["sls-marble"][50],
-          muted: designTokens.colors["sls-marble"][400],
+          DEFAULT: designTokens.colors["warm-ivory"][200],
+          dark: designTokens.colors["opera-blue"][900],
+          light: designTokens.colors["warm-ivory"][50],
+          muted: designTokens.colors["warm-ivory"][300],
+          card: designTokens.colors["warm-ivory"][100],
         },
 
-        // Foreground system
+        // Foreground system - Heritage Opera
         foreground: {
-          DEFAULT: designTokens.colors["sls-charcoal"][950],
-          muted: designTokens.colors["sls-charcoal"][600],
-          light: designTokens.colors["sls-marble"][200],
-          subtle: designTokens.colors["sls-marble"][800],
+          DEFAULT: designTokens.colors["rich-mahogany"][900],
+          muted: designTokens.colors["rich-mahogany"][600],
+          light: designTokens.colors["warm-ivory"][200],
+          subtle: designTokens.colors["rich-mahogany"][400],
+          heading: designTokens.colors["opera-blue"][900],
         },
 
-        // Status colors (using design system)
-        success: designTokens.colors["sls-forest"][600],
-        warning: designTokens.colors["sls-gold"][500],
-        error: designTokens.colors["sls-purple"][700],
-        info: designTokens.colors["sls-charcoal"][600],
+        // Status colors (adapted to Heritage Opera palette)
+        success: designTokens.colors["jade-green"][600],
+        warning: designTokens.colors["champagne-gold"][600],
+        error: designTokens.colors["rich-mahogany"][800],
+        info: designTokens.colors["opera-blue"][700],
+
+        // Heritage Opera specific colors for direct use
+        "heritage-blue": designTokens.colors["opera-blue"][900],
+        "heritage-gold": designTokens.colors["champagne-gold"][400],
+        "heritage-ivory": designTokens.colors["warm-ivory"][200],
+        "heritage-mahogany": designTokens.colors["rich-mahogany"][900],
+        "heritage-jade": designTokens.colors["jade-green"][600],
       },
 
       // Typography system
@@ -199,16 +213,16 @@ export default {
         },
       },
 
-      // Enhanced shadow system
+      // Enhanced shadow system for Heritage Opera
       boxShadow: {
-        street: "0 4px 20px rgba(26, 26, 26, 0.08)",
-        "street-lg": "0 8px 40px rgba(26, 26, 26, 0.12)",
-        luxe: "0 8px 32px rgba(212, 175, 55, 0.15)",
-        "luxe-lg": "0 16px 48px rgba(212, 175, 55, 0.2)",
-        premium: "0 12px 40px rgba(107, 44, 145, 0.15)",
-        "premium-lg": "0 20px 60px rgba(107, 44, 145, 0.2)",
-        "glow-gold": "0 0 20px rgba(212, 175, 55, 0.3)",
-        "glow-purple": "0 0 20px rgba(107, 44, 145, 0.3)",
+        opera: "0 4px 20px rgba(27, 54, 93, 0.08)",
+        "opera-lg": "0 8px 40px rgba(27, 54, 93, 0.12)",
+        gold: "0 8px 32px rgba(247, 231, 180, 0.15)",
+        "gold-lg": "0 16px 48px rgba(247, 231, 180, 0.2)",
+        mahogany: "0 12px 40px rgba(93, 46, 31, 0.15)",
+        "mahogany-lg": "0 20px 60px rgba(93, 46, 31, 0.2)",
+        "glow-gold": "0 0 20px rgba(247, 231, 180, 0.4)",
+        "glow-blue": "0 0 20px rgba(27, 54, 93, 0.3)",
         "inner-soft": "inset 0 2px 4px rgba(0, 0, 0, 0.05)",
       },
 
@@ -219,6 +233,7 @@ export default {
         "slide-down": "slideDown 0.4s ease-out",
         "scale-in": "scaleIn 0.3s ease-out",
         "glow-pulse": "glowPulse 2s ease-in-out infinite",
+        float: "float 3s ease-in-out infinite",
       },
 
       keyframes: {
@@ -248,6 +263,14 @@ export default {
             opacity: "0.8",
           },
         },
+        float: {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          },
+        },
       },
 
       // Responsive breakpoints
@@ -263,7 +286,7 @@ export default {
     tailwindcssForms,
     tailwindcssTypography,
 
-    // Street Lawyer Services Design System Plugin
+    // Cafe Opera Heritage Design System Plugin
     function ({ addBase, addComponents, addUtilities, theme }) {
       // Base layer - foundational styles
       addBase({
@@ -279,6 +302,7 @@ export default {
           fontFamily: theme("fontFamily.heading"),
           fontWeight: theme("fontWeight.semibold"),
           lineHeight: "1.2",
+          color: theme("colors.foreground.heading"),
         },
         h1: { fontSize: theme("fontSize.heading-1") },
         h2: { fontSize: theme("fontSize.heading-2") },
@@ -291,11 +315,11 @@ export default {
         },
       });
 
-      // Component layer - reusable patterns (use sparingly)
+      // Component layer - Heritage Opera specific components
       addComponents({
         // Button system
         ".btn": {
-          "@apply inline-flex items-center justify-center font-heading font-semibold uppercase tracking-wider transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed":
+          "@apply inline-flex items-center justify-center font-heading font-semibold tracking-wide transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed":
             {},
         },
         ".btn-sm": {
@@ -308,11 +332,15 @@ export default {
           "@apply btn px-8 py-4 text-body-lg rounded-xl": {},
         },
         ".btn-primary": {
-          "@apply btn-md bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-primary/50 shadow-luxe hover:shadow-luxe-lg hover:-translate-y-0.5":
+          "@apply btn-md bg-heritage-blue text-heritage-ivory hover:bg-opera-blue-800 focus:ring-heritage-blue/50 shadow-opera hover:shadow-opera-lg hover:-translate-y-0.5":
             {},
         },
         ".btn-secondary": {
-          "@apply btn-md bg-transparent text-primary border-2 border-primary hover:bg-primary hover:text-primary-foreground focus:ring-primary/50":
+          "@apply btn-md bg-heritage-gold text-heritage-blue hover:bg-champagne-gold-500 focus:ring-heritage-gold/50 shadow-gold hover:shadow-gold-lg hover:-translate-y-0.5":
+            {},
+        },
+        ".btn-outline": {
+          "@apply btn-md bg-transparent text-heritage-blue border-2 border-heritage-blue hover:bg-heritage-blue hover:text-heritage-ivory focus:ring-heritage-blue/50":
             {},
         },
         ".btn-ghost": {
@@ -322,15 +350,19 @@ export default {
 
         // Card system
         ".card": {
-          "@apply bg-background border border-sls-marble-300/50 rounded-xl shadow-street":
+          "@apply bg-background-card border border-warm-ivory-300/50 rounded-xl shadow-opera":
             {},
         },
         ".card-interactive": {
-          "@apply card transition-all duration-300 hover:shadow-street-lg hover:-translate-y-1 cursor-pointer":
+          "@apply card transition-all duration-300 hover:shadow-opera-lg hover:-translate-y-1 cursor-pointer":
             {},
         },
         ".card-premium": {
-          "@apply card bg-gradient-to-br from-sls-marble-50 to-sls-marble-100 shadow-premium":
+          "@apply card bg-gradient-to-br from-warm-ivory-50 to-warm-ivory-100 shadow-gold":
+            {},
+        },
+        ".card-heritage": {
+          "@apply card bg-gradient-to-br from-heritage-ivory to-warm-ivory-100 border-heritage-gold/20":
             {},
         },
 
@@ -345,38 +377,49 @@ export default {
           "@apply section-padding bg-background": {},
         },
         ".section-dark": {
-          "@apply section-padding bg-background-dark text-foreground-light": {},
+          "@apply section-padding bg-heritage-blue text-heritage-ivory": {},
         },
         ".section-accent": {
-          "@apply section-padding bg-secondary text-secondary-foreground": {},
+          "@apply section-padding bg-heritage-gold text-heritage-blue": {},
+        },
+
+        // Heritage Opera specific components
+        ".heritage-heading": {
+          "@apply font-heading text-heritage-blue font-semibold": {},
+        },
+        ".heritage-text": {
+          "@apply text-heritage-mahogany": {},
+        },
+        ".heritage-accent": {
+          "@apply text-heritage-gold": {},
         },
       });
 
-      // Utility layer - single-purpose classes
+      // Utility layer - Heritage Opera specific utilities
       addUtilities({
         // Text utilities
-        ".text-gradient-primary": {
-          background: `linear-gradient(135deg, ${theme("colors.primary.DEFAULT")} 0%, ${theme("colors.accent.DEFAULT")} 100%)`,
+        ".text-gradient-heritage": {
+          background: `linear-gradient(135deg, ${theme("colors.heritage-blue")} 0%, ${theme("colors.heritage-gold")} 100%)`,
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           WebkitTextFillColor: "transparent",
         },
-        ".text-gradient-forest": {
-          background: `linear-gradient(135deg, ${theme("colors.secondary.DEFAULT")} 0%, ${theme("colors.secondary.500")} 100%)`,
+        ".text-gradient-opera": {
+          background: `linear-gradient(135deg, ${theme("colors.opera-blue.900")} 0%, ${theme("colors.champagne-gold.400")} 100%)`,
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           WebkitTextFillColor: "transparent",
         },
 
         // Background utilities
-        ".bg-gradient-primary": {
-          background: `linear-gradient(135deg, ${theme("colors.primary.DEFAULT")} 0%, ${theme("colors.accent.DEFAULT")} 100%)`,
+        ".bg-gradient-heritage": {
+          background: `linear-gradient(135deg, ${theme("colors.heritage-blue")} 0%, ${theme("colors.heritage-gold")} 100%)`,
         },
-        ".bg-gradient-forest": {
-          background: `linear-gradient(135deg, ${theme("colors.secondary.DEFAULT")} 0%, ${theme("colors.secondary.500")} 100%)`,
+        ".bg-gradient-opera": {
+          background: `linear-gradient(135deg, ${theme("colors.opera-blue.900")} 0%, ${theme("colors.champagne-gold.400")} 100%)`,
         },
-        ".bg-gradient-smoke": {
-          background: `linear-gradient(135deg, ${theme("colors.sls-charcoal.950")} 0%, ${theme("colors.sls-charcoal.800")} 100%)`,
+        ".bg-gradient-elegant": {
+          background: `linear-gradient(135deg, ${theme("colors.heritage-ivory")} 0%, ${theme("colors.warm-ivory.100")} 100%)`,
         },
 
         // Animation utilities
@@ -386,6 +429,14 @@ export default {
         },
         ".animate-on-scroll.is-visible": {
           "@apply opacity-100 translate-y-0": {},
+        },
+
+        // Heritage Opera specific utilities
+        ".heritage-shadow": {
+          boxShadow: `0 10px 30px rgba(27, 54, 93, 0.1), 0 0 0 1px rgba(247, 231, 180, 0.1)`,
+        },
+        ".opera-glow": {
+          boxShadow: `0 0 30px rgba(247, 231, 180, 0.3)`,
         },
       });
     },
